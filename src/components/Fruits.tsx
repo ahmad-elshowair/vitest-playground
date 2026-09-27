@@ -1,16 +1,5 @@
-interface Fruit {
-  name: string;
-  id: number;
-  family: string;
-  genus: string;
-  order: string;
-  nutritious: {
-    fat: number;
-    protein: number;
-    calories: number;
-    carbohydrates: number;
-  };
-}
+import type { Fruit } from "../types/fruit";
+
 export const loadFruit = async (name: string): Promise<Fruit | undefined> => {
   const fruits: Fruit[] = [
     {
