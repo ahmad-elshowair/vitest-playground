@@ -1,0 +1,17 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Loading Fruit Data > Should create snapshots file 1`] = `
+{
+  "family": "Rosaceae",
+  "genus": "Malus",
+  "id": 1,
+  "name": "Apple",
+  "nutritious": {
+    "calories": 52,
+    "carbohydrates": 13.8,
+    "fat": 0.2,
+    "protein": 0.3,
+  },
+  "order": "Rosales",
+}
+`;
