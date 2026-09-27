@@ -1,0 +1,4 @@
+allowBuilds:
+  # Native resolver used by eslint-import-resolver-typescript; trusted, and the
+  # postinstall is only a fallback for platforms without a prebuilt binary.
+  unrs-resolver: true
