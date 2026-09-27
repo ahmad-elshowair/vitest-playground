@@ -4,7 +4,7 @@ import { divide, multiply, subtract, sum } from "../math";
 
 describe("Should perform basic math operations", () => {
   it("Should add two number", () => {
-    expect(sum(1, 2)).toBe(3);
+    expect(sum("12", 2)).toBe(122);
   });
   it("Should subtract two number", () => {
     expect(subtract(1, 2)).toBe(-1);

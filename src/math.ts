@@ -1,4 +1,4 @@
-export const sum = (a: number, b: number) => a + b;
+export const sum = (a: any, b: number) => a + b;
 
 export const subtract = (a: number, b: number) => a - b;
 
