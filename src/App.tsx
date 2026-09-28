@@ -15,12 +15,10 @@ export function App() {
   );
 }
 
-function WrappedApp() {
+export function WrappedApp() {
   return (
     <BrowserRouter>
       <App />
     </BrowserRouter>
   );
 }
-
-export default WrappedApp;
