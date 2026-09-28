@@ -1,15 +1,27 @@
 import { useEffect, useState } from "react";
 import { Badge, Container, Nav, Navbar } from "react-bootstrap";
 
-const AppNavbar = () => {
-  const [theme, setTheme] = useState<"dark" | "light">("dark");
+const getSavedTheme = (): "dark" | "light" => {
+  if (typeof window !== "undefined") {
+    const saved = localStorage.getItem("theme");
+    if (saved === "light" || saved === "dark") {
+      return saved;
+    }
+  }
+  return "dark";
+};
+
+const NavBar = () => {
+  const [theme, setTheme] = useState<"dark" | "light">(getSavedTheme);
 
   useEffect(() => {
     document.documentElement.setAttribute("data-theme", theme);
+    document.documentElement.setAttribute("data-bs-theme", theme);
+    localStorage.setItem("theme", theme);
   }, [theme]);
 
   const toggleTheme = () => {
-    setTheme((prev) => (prev === "light" ? "dark" : "light"));
+    setTheme((prev) => (prev === "dark" ? "light" : "dark"));
   };
 
   return (
@@ -27,9 +39,6 @@ const AppNavbar = () => {
 
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="ms-auto align-items-center gap-3">
-            <Nav.Link href="#fruits" className="active">
-              Fruit Explorer
-            </Nav.Link>
             <Nav.Link
               href="https://vitest.dev"
               target="_blank"
@@ -44,7 +53,7 @@ const AppNavbar = () => {
               onClick={toggleTheme}
               aria-label="Toggle green/beige theme"
             >
-              {theme === "light" ? "🌲 Forest Mode" : "🌾 Beige Mode"}
+              {theme === "dark" ? "🌾 Beige Mode" : "🌲 Forest Mode"}
             </button>
           </Nav>
         </Navbar.Collapse>
@@ -53,4 +62,4 @@ const AppNavbar = () => {
   );
 };
 
-export default AppNavbar;
+export default NavBar;

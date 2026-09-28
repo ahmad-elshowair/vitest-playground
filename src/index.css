@@ -1,91 +1,111 @@
 @import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap");
 
-:root {
+:root,
+[data-theme="dark"],
+[data-bs-theme="dark"] {
   --font-family: "Plus Jakarta Sans", system-ui, -apple-system, sans-serif;
 
-  /* Default Theme: Forest Dark & Warm Beige (High-contrast, sleek glassmorphism) */
+  /* Forest Dark & Warm Beige (Default High-Contrast Theme) */
   --bg-primary: #0a110d;
   --bg-secondary: #101c15;
-  --bg-card: rgba(16, 28, 21, 0.85);
-  --bg-card-glass: rgba(16, 28, 21, 0.88);
-  --border-card: rgba(224, 212, 192, 0.12);
+  --bg-card: rgba(16, 28, 21, 0.88);
+  --bg-card-glass: rgba(16, 28, 21, 0.9);
+  --border-card: rgba(224, 212, 192, 0.15);
   --border-focus: #40916c;
-  --focus-ring: rgba(64, 145, 108, 0.28);
+  --focus-ring: rgba(64, 145, 108, 0.35);
   --text-main: #f5f2eb;
   --text-muted: #9baea1;
+  --hero-title-color: #ffffff;
   --primary-accent: #40916c;
   --primary-hover: #52b788;
   --primary-gradient: linear-gradient(135deg, #2d6a4f 0%, #52b788 100%);
-  --hero-title-gradient: linear-gradient(135deg, #ffffff 30%, #a3c4b0 100%);
   --accent-beige: #eadecc;
   --accent-beige-subtle: rgba(234, 222, 204, 0.08);
   --accent-green-subtle: rgba(64, 145, 108, 0.16);
-  --badge-pill-bg: rgba(64, 145, 108, 0.18);
+  --badge-pill-bg: rgba(64, 145, 108, 0.22);
   --badge-pill-text: #d8eedf;
-  --badge-pill-border: rgba(82, 183, 136, 0.35);
-  --badge-dot: #40916c;
-  --chip-bg: rgba(255, 255, 255, 0.05);
-  --chip-border: rgba(224, 212, 192, 0.15);
-  --chip-text: #eadecc;
-  --chip-hover-bg: rgba(64, 145, 108, 0.2);
-  --shadow-card: 0 20px 40px -15px rgba(0, 0, 0, 0.6);
-  --navbar-bg: rgba(10, 17, 13, 0.85);
-  --navbar-border: rgba(224, 212, 192, 0.08);
-  --search-bg: rgba(16, 28, 21, 0.9);
-  --search-placeholder: #728879;
+  --badge-pill-border: rgba(82, 183, 136, 0.45);
+  --badge-dot: #52b788;
+  --chip-bg: rgba(255, 255, 255, 0.06);
+  --chip-border: rgba(224, 212, 192, 0.18);
+  --chip-text: #f5f2eb;
+  --chip-hover-bg: rgba(64, 145, 108, 0.24);
+  --shadow-card: 0 20px 40px -15px rgba(0, 0, 0, 0.65);
+  --navbar-bg: rgba(10, 17, 13, 0.92);
+  --navbar-border: rgba(224, 212, 192, 0.1);
+  --search-bg: rgba(16, 28, 21, 0.95);
+  --search-placeholder: #7c9484;
+
+  /* Bootstrap Variable Overrides */
+  --bs-body-bg: var(--bg-primary);
+  --bs-body-color: var(--text-main);
+  --bs-card-bg: var(--bg-card);
+  --bs-card-border-color: var(--border-card);
 }
 
-[data-theme="light"] {
+[data-theme="light"],
+[data-bs-theme="light"] {
   /* Warm Beige & Botanical Green (Light Theme Option) */
   --bg-primary: #f7f4ed;
   --bg-secondary: #eee8db;
   --bg-card: #ffffff;
-  --bg-card-glass: rgba(255, 255, 255, 0.92);
+  --bg-card-glass: rgba(255, 255, 255, 0.95);
   --border-card: #e4dccb;
   --border-focus: #2d6a4f;
-  --focus-ring: rgba(45, 106, 79, 0.18);
+  --focus-ring: rgba(45, 106, 79, 0.22);
   --text-main: #182b20;
-  --text-muted: #5e7364;
+  --text-muted: #526658;
+  --hero-title-color: #14291c;
   --primary-accent: #2d6a4f;
   --primary-hover: #1b4332;
   --primary-gradient: linear-gradient(135deg, #2d6a4f 0%, #40916c 100%);
-  --hero-title-gradient: linear-gradient(135deg, #182b20 20%, #2d6a4f 100%);
   --accent-beige: #eadecc;
-  --accent-beige-subtle: #f4efe4;
-  --accent-green-subtle: rgba(45, 106, 79, 0.08);
-  --badge-pill-bg: #e6f2eb;
+  --accent-beige-subtle: #eee7d8;
+  --accent-green-subtle: rgba(45, 106, 79, 0.1);
+  --badge-pill-bg: #e2ede5;
   --badge-pill-text: #1b4332;
   --badge-pill-border: #bcdcc8;
   --badge-dot: #2d6a4f;
-  --chip-bg: #f3ede2;
-  --chip-border: #dfd7c5;
-  --chip-text: #263d2f;
-  --chip-hover-bg: #e8e0d0;
+  --chip-bg: #eee7d8;
+  --chip-border: #dcd1be;
+  --chip-text: #182b20;
+  --chip-hover-bg: #e2d9c6;
   --shadow-card:
     0 16px 36px -10px rgba(45, 106, 79, 0.08),
     0 8px 16px -6px rgba(0, 0, 0, 0.04);
-  --navbar-bg: rgba(247, 244, 237, 0.88);
+  --navbar-bg: rgba(247, 244, 237, 0.94);
   --navbar-border: #e6decb;
   --search-bg: #ffffff;
-  --search-placeholder: #8a9c8f;
+  --search-placeholder: #798d7f;
+
+  /* Bootstrap Variable Overrides */
+  --bs-body-bg: var(--bg-primary);
+  --bs-body-color: var(--text-main);
+  --bs-card-bg: var(--bg-card);
+  --bs-card-border-color: var(--border-card);
 }
 
 * {
   box-sizing: border-box;
 }
 
-body {
+html,
+body,
+#root {
+  min-height: 100vh;
   margin: 0;
   padding: 0;
   font-family: var(--font-family);
   background-color: var(--bg-primary);
+  color: var(--text-main);
+}
+
+body {
   background-image:
     radial-gradient(at 15% 15%, rgba(64, 145, 108, 0.18) 0px, transparent 45%),
     radial-gradient(at 85% 20%, rgba(212, 197, 169, 0.15) 0px, transparent 50%),
     radial-gradient(at 50% 80%, rgba(45, 106, 79, 0.15) 0px, transparent 55%);
   background-attachment: fixed;
-  color: var(--text-main);
-  min-height: 100vh;
   transition:
     background-color 0.3s ease,
     color 0.3s ease;
@@ -99,7 +119,7 @@ body {
     radial-gradient(at 50% 80%, rgba(107, 144, 128, 0.1) 0px, transparent 55%);
 }
 
-/* App Navbar (using compound selector specificity instead of !important) */
+/* App Navbar */
 nav.navbar.app-navbar {
   background: var(--navbar-bg);
   backdrop-filter: blur(16px);
@@ -133,22 +153,26 @@ nav.navbar.app-navbar .navbar-nav .nav-link.active {
   background: var(--accent-green-subtle);
 }
 
-.theme-toggle-btn {
+button.theme-toggle-btn {
+  appearance: none;
+  -webkit-appearance: none;
   background: var(--accent-beige-subtle);
   border: 1px solid var(--border-card);
   color: var(--text-main);
   border-radius: 9999px;
-  padding: 6px 14px;
+  padding: 7px 16px;
   font-size: 0.85rem;
   font-weight: 600;
   cursor: pointer;
   display: inline-flex;
   align-items: center;
   gap: 6px;
+  outline: none;
+  box-shadow: none;
   transition: all 0.2s ease;
 }
 
-.theme-toggle-btn:hover {
+button.theme-toggle-btn:hover {
   background: var(--chip-hover-bg);
   border-color: var(--primary-accent);
   transform: translateY(-1px);
@@ -191,29 +215,31 @@ nav.navbar.app-navbar .navbar-nav .nav-link.active {
 }
 
 .hero-title {
-  background: var(--hero-title-gradient);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  color: var(--hero-title-color);
   font-weight: 800;
   letter-spacing: -0.02em;
 }
 
 /* Fruit Chips */
-.fruit-chip {
+button.fruit-chip {
+  appearance: none;
+  -webkit-appearance: none;
   background: var(--chip-bg);
   border: 1px solid var(--chip-border);
   color: var(--chip-text);
-  padding: 8px 18px;
+  padding: 9px 20px;
   border-radius: 9999px;
   font-size: 0.925rem;
-  font-weight: 500;
+  font-weight: 600;
   cursor: pointer;
-  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
   display: inline-flex;
   align-items: center;
+  outline: none;
+  box-shadow: none;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.fruit-chip:hover {
+button.fruit-chip:hover {
   background: var(--chip-hover-bg);
   border-color: var(--primary-accent);
   color: #ffffff;
@@ -221,12 +247,12 @@ nav.navbar.app-navbar .navbar-nav .nav-link.active {
   box-shadow: 0 4px 12px rgba(45, 106, 79, 0.2);
 }
 
-.fruit-chip.active {
+button.fruit-chip.active {
   background: var(--primary-gradient);
   border-color: transparent;
   color: #ffffff;
   box-shadow: 0 4px 16px rgba(64, 145, 108, 0.4);
-  font-weight: 600;
+  font-weight: 700;
 }
 
 /* Search Bar */
@@ -292,7 +318,7 @@ nav.navbar.app-navbar .navbar-nav .nav-link.active {
   color: var(--text-main);
 }
 
-/* Fruit Detail Card (using .card compound selector specificity instead of !important) */
+/* Fruit Detail Card */
 .card.fruit-detail-card {
   background: var(--bg-card-glass);
   backdrop-filter: blur(20px);
@@ -411,7 +437,7 @@ nav.navbar.app-navbar .navbar-nav .nav-link.active {
   margin-left: 4px;
 }
 
-/* Progress bar specificity */
+/* Progress bar */
 .progress.metric-progress {
   height: 6px;
   border-radius: 9999px;
@@ -422,7 +448,7 @@ nav.navbar.app-navbar .navbar-nav .nav-link.active {
   background-color: rgba(0, 0, 0, 0.08);
 }
 
-/* Not Found & Prompt Cards (using .card compound selector specificity instead of !important) */
+/* Not Found & Prompt Cards */
 .card.not-found-card,
 .card.placeholder-prompt-card {
   background: var(--bg-card-glass);
