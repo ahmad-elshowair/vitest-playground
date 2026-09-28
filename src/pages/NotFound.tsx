@@ -9,7 +9,7 @@ const NotFound = () => {
           <Card className="not-found-card text-center p-5">
             <Card.Body>
               <div className="not-found-icon mb-3">🧭</div>
-              <h2 className="fw-bold mb-2">404 - Page Not Found</h2>
+              <h1 className="fw-bold mb-2">404 - Page Not Found</h1>
               <p className="text-secondary mb-4">
                 The botanical page you are looking for doesn&apos;t exist or has
                 been moved.
