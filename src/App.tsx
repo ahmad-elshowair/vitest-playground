@@ -1,5 +1,7 @@
+import { Provider } from "react-redux";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 
+import { store } from "./app/store";
 import AppLayout from "./layouts/AppLayout";
 import Home from "./pages/Home";
 import NotFound from "./pages/NotFound";
@@ -17,8 +19,11 @@ export function App() {
 
 export function WrappedApp() {
   return (
-    <BrowserRouter>
-      <App />
-    </BrowserRouter>
+    <Provider store={store}>
+      <BrowserRouter>
+        <App />
+      </BrowserRouter>
+    </Provider>
   );
 }
+

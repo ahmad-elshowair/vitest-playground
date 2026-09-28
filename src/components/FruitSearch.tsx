@@ -12,10 +12,11 @@ import {
   Row,
   Spinner,
 } from "react-bootstrap";
+import { useDispatch, useSelector } from "react-redux";
 
-import type { Fruit } from "../types/fruit";
+import type { AppDispatch, RootState } from "../app/store";
 
-import { getFruit } from "./Fruits";
+import { clearFruit, fetchFruit } from "../features/fruits/fruitsSlice";
 
 const PRESET_FRUITS = [
   { emoji: "🍎", name: "Apple" },
@@ -26,53 +27,30 @@ const PRESET_FRUITS = [
 ];
 
 const FruitSearch = () => {
+  const dispatch: AppDispatch = useDispatch();
+
+  const fruit = useSelector((state: RootState) => state.fruits.fruit);
+  const status = useSelector((state: RootState) => state.fruits.status);
+  const error = useSelector((state: RootState) => state.fruits.error);
+
   const [fruitName, setFruitName] = useState<string>("");
-  const [fruit, setFruit] = useState<Fruit | undefined>(undefined);
-  const [isLoading, setIsLoading] = useState<boolean>(false);
-  const [errorMessage, setErrorMessage] = useState<string | null>(null);
+
+  const isLoading = status === "loading";
+  const errorMessage = status === "failed" ? error : null;
 
   useEffect(() => {
     const trimmed = fruitName.trim();
-    let isMounted = true;
+    if (!trimmed) {
+      dispatch(clearFruit());
+      return;
+    }
 
-    const runFetch = async () => {
-      if (!trimmed) {
-        if (isMounted) {
-          setFruit(undefined);
-          setErrorMessage(null);
-        }
-        return;
-      }
-
-      setIsLoading(true);
-      setErrorMessage(null);
-
-      try {
-        const data = await getFruit(trimmed);
-        if (isMounted) {
-          setFruit(data);
-          setErrorMessage(null);
-        }
-      } catch (err) {
-        if (isMounted) {
-          setFruit(undefined);
-          setErrorMessage(
-            err instanceof Error ? err.message : "Fruit not found",
-          );
-        }
-      } finally {
-        if (isMounted) {
-          setIsLoading(false);
-        }
-      }
-    };
-
-    void runFetch();
+    const promise = dispatch(fetchFruit(trimmed));
 
     return () => {
-      isMounted = false;
+      promise.abort();
     };
-  }, [fruitName]);
+  }, [dispatch, fruitName]);
 
   const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
     setFruitName(e.target.value);
